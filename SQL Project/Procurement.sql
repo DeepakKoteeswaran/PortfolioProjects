@@ -1,5 +1,5 @@
 /*
-Procurement vendors Data Exploration 
+Business Requirement: Supplier Performance Data Exploration 
 
 Skills used: Joins, CTEs, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
 
@@ -34,7 +34,6 @@ FROM DomesticVendorTotalSpend DVS
 WHERE DVS.VendorRank <= 5;
 
 --Top 5 international Vendors by order amount
-
 CREATE TEMPORARY TABLE InternationalVendorTotalSpend AS (
     SELECT 
         VendorName,
@@ -54,7 +53,6 @@ FROM InternationalVendorTotalSpend
 WHERE VendorRank <= 5;
 
 --Top 5 vendors offering the least discounts 
-
 SELECT 
     VendorName,
     SUM(PODiscount) AS TotalDiscount
@@ -63,8 +61,7 @@ GROUP BY VendorName
 ORDER BY TotalDiscount ASC
 LIMIT 5;
 
-
--- List of Vendors, where we have to pay shipping fee for the order from their warehouse
+-- List of Vendors, where we have to pay shipping fees for the order from their warehouse
 SELECT 
     p.VendorName,
     p.POAmount,
@@ -72,7 +69,6 @@ SELECT
 FROM ProcurementData p
 WHERE p.VendorAgreementTerms = 'FOB - Vendor Warehouse'
 ORDER BY p.POAmount DESC;
-
 
 -- Delivery Delay for order transited by vendors
 SELECT 
