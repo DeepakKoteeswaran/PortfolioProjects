@@ -1,3 +1,10 @@
+/*
+Procurement vendors Data Exploration 
+
+Skills used: Joins, CTEs, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
+
+*/
+
 -- Vendors by total order amount 
 
 SELECT 
@@ -46,7 +53,7 @@ SELECT
 FROM InternationalVendorTotalSpend
 WHERE VendorRank <= 5;
 
---Top 5 vendors offering least discounts 
+--Top 5 vendors offering the least discounts 
 
 SELECT 
     VendorName,
@@ -67,7 +74,7 @@ WHERE p.VendorAgreementTerms = 'FOB - Vendor Warehouse'
 ORDER BY p.POAmount DESC;
 
 
--- Delivery Delay for order transtied by vendors
+-- Delivery Delay for order transited by vendors
 SELECT 
     s.VendorName,
     CASE 
